@@ -13,6 +13,8 @@
 #include <platform/iomap.h>
 #include <reg.h>
 
+#include "version.h"
+
 #define LINUX_MACHTYPE  2524
 #define HTCLEO_FLASH_OFFSET	0x219
 
@@ -148,6 +150,9 @@ void target_init(void)
 }
 void display_lk_version()
 {
+	char *version = "cedesmith's LK (CLK) v";
+	strcat(version,cLK_version);
+	strcat(version,"\n");
 	_dputs("cedesmith's LK (CLK) v1.4\n");
 }
 struct fbcon_config* fbcon_display(void);

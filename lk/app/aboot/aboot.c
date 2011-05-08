@@ -46,6 +46,7 @@
 #include "recovery.h"
 #include "bootimg.h"
 #include "fastboot.h"
+#include "version.h"
 
 #define EXPAND(NAME) #NAME
 #define TARGET(NAME) EXPAND(NAME)
@@ -292,6 +293,9 @@ unified_boot:
 	} else {
 		cmdline = DEFAULT_CMDLINE;
 	}
+	strcat(cmdline," clk=");
+	strcat(cmdline,cLK_version);
+
 	dprintf(INFO, "cmdline = '%s'\n", cmdline);
 
 	dprintf(INFO, "\nBooting Linux\n");
@@ -384,6 +388,9 @@ continue_boot:
 	} else {
 		cmdline = DEFAULT_CMDLINE;
 	}
+	strcat(cmdline," clk=");
+	strcat(cmdline,cLK_version);
+
 	dprintf(INFO, "cmdline = '%s'\n", cmdline);
 
 	/* TODO: create/pass atags to kernel */
