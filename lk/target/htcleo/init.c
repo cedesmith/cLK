@@ -153,7 +153,7 @@ void display_lk_version()
 	char *version = "cedesmith's LK (CLK) v";
 	strcat(version,cLK_version);
 	strcat(version,"\n");
-	_dputs("cedesmith's LK (CLK) v1.4\n");
+	_dputs(version);
 }
 struct fbcon_config* fbcon_display(void);
 void htcleo_fastboot_init()
